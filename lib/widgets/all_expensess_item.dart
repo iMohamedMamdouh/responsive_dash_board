@@ -1,36 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_dash_board/models/all_expensess_item_model.dart';
-import 'package:responsive_dash_board/utils/app_styles.dart';
-import 'package:responsive_dash_board/widgets/all_expensess_item_header.dart';
+import 'package:responsive_dash_board/widgets/inactive_and_active_all_expensess_item.dart';
 
-class AllExpensesItem extends StatelessWidget {
-  const AllExpensesItem({super.key, required this.allExpensesItemModel});
+class AllExpensessItem extends StatelessWidget {
+  const AllExpensessItem({
+    super.key,
+    required this.allExpensesItemModel,
+    required this.isSelected,
+  });
 
   final AllExpensesItemModel allExpensesItemModel;
 
+  final bool isSelected;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0),
-      decoration: ShapeDecoration(
-        color: Colors.white,
-        shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1, color: Color(0xFFF1F1F1)),
-          borderRadius: BorderRadius.circular(12),
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          AllExpensesItemHeader(image: allExpensesItemModel.image),
-          SizedBox(height: 34),
-          Text(allExpensesItemModel.title, style: AppStyles.styleMedium16),
-          const SizedBox(height: 8),
-          Text(allExpensesItemModel.date, style: AppStyles.styleRegular14),
-          const SizedBox(height: 16),
-          Text(allExpensesItemModel.amount, style: AppStyles.styleSemiBold24),
-        ],
-      ),
-    );
+    return isSelected
+        ? ActiveAllExpensessItem(allExpensesItemModel: allExpensesItemModel)
+        : InActiveAllExpensessItem(allExpensesItemModel: allExpensesItemModel);
   }
 }
