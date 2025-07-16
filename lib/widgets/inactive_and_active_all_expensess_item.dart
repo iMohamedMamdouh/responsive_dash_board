@@ -13,28 +13,26 @@ class InActiveAllExpensessItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0),
-        decoration: ShapeDecoration(
-          color: Colors.white,
-          shape: RoundedRectangleBorder(
-            side: BorderSide(width: 1, color: Color(0xFFF1F1F1)),
-            borderRadius: BorderRadius.circular(12),
-          ),
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0),
+      decoration: ShapeDecoration(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          side: BorderSide(width: 1, color: Color(0xFFF1F1F1)),
+          borderRadius: BorderRadius.circular(12),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AllExpensesItemHeader(image: allExpensesItemModel.image),
-            SizedBox(height: 34),
-            Text(allExpensesItemModel.title, style: AppStyles.styleMedium16),
-            const SizedBox(height: 8),
-            Text(allExpensesItemModel.date, style: AppStyles.styleRegular14),
-            const SizedBox(height: 16),
-            Text(allExpensesItemModel.amount, style: AppStyles.styleSemiBold24),
-          ],
-        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AllExpensesItemHeader(image: allExpensesItemModel.image),
+          SizedBox(height: 34),
+          Text(allExpensesItemModel.title, style: AppStyles.styleMedium16),
+          const SizedBox(height: 8),
+          Text(allExpensesItemModel.date, style: AppStyles.styleRegular14),
+          const SizedBox(height: 16),
+          Text(allExpensesItemModel.amount, style: AppStyles.styleSemiBold24),
+        ],
       ),
     );
   }
@@ -47,42 +45,36 @@ class ActiveAllExpensessItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0),
-        decoration: ShapeDecoration(
-          color: Color(0xFF4EB7F2),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0),
+      decoration: ShapeDecoration(
+        color: Color(0xFF4EB7F2),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AllExpensesItemHeader(
+            imageBackground: Color(0xFF80CBF5),
+            imageColor: Colors.white,
+            image: allExpensesItemModel.image,
           ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AllExpensesItemHeader(
-              imageBackground: Color(0xFF80CBF5),
-              imageColor: Colors.white,
-              image: allExpensesItemModel.image,
-            ),
-            SizedBox(height: 34),
-            Text(
-              allExpensesItemModel.title,
-              style: AppStyles.styleMedium16.copyWith(color: Colors.white),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              allExpensesItemModel.date,
-              style: AppStyles.styleRegular14.copyWith(
-                color: Color(0xFFFAFAFA),
-              ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              allExpensesItemModel.amount,
-              style: AppStyles.styleSemiBold24.copyWith(color: Colors.white),
-            ),
-          ],
-        ),
+          SizedBox(height: 34),
+          Text(
+            allExpensesItemModel.title,
+            style: AppStyles.styleMedium16.copyWith(color: Colors.white),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            allExpensesItemModel.date,
+            style: AppStyles.styleRegular14.copyWith(color: Color(0xFFFAFAFA)),
+          ),
+          const SizedBox(height: 16),
+          Text(
+            allExpensesItemModel.amount,
+            style: AppStyles.styleSemiBold24.copyWith(color: Colors.white),
+          ),
+        ],
       ),
     );
   }
